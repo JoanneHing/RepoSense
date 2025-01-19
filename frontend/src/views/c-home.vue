@@ -39,8 +39,14 @@
               #tab-empty(v-else)
                 .title
                   h2 Welcome to this RepoSense report!
-                  p The charts on the left show the contribution activities, grouped by repository and author.
+                  p This report provides a <strong>summary</strong> of &nbsp;
+                    the contributions made by each author in the repositories.
                   p
+                  p The charts on the left show the <strong>contribution activities</strong>,&nbsp;
+                    grouped by repository and author.
+                  p
+
+                  .color-box(style="background-color: #afe1af; padding: 10px;border-radius: 5px; margin-bottom: 10px;")
                     | To view the code attributed to a specific author, click the &nbsp;
                     font-awesome-icon(icon="code")
                     | &nbsp; icon next to that author's name.
