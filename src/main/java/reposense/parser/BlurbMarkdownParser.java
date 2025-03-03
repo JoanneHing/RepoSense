@@ -12,14 +12,14 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.regex.Pattern;
 
-import reposense.model.BlurbMap;
+import reposense.model.RepoBlurbMap;
 import reposense.parser.exceptions.InvalidMarkdownException;
 
 /**
  * Parses the Markdown file and retrieves the mappings from URLs to blurbs from the blurbs
  * configuration file.
  */
-public class BlurbMarkdownParser extends MarkdownParser<BlurbMap> {
+public class BlurbMarkdownParser extends MarkdownParser<RepoBlurbMap> {
     public static final Pattern DELIMITER = Pattern.compile("<!--repo-->(.*)");
     public static final String DEFAULT_BLURB_FILENAME = "blurbs.md";
 
@@ -65,13 +65,13 @@ public class BlurbMarkdownParser extends MarkdownParser<BlurbMap> {
 
     /**
      * Parses the markdown file containing the url to blurb mapping and returns a
-     * {@code BlurbMap} containing the mappings between the url and blurbs.
+     * {@code RepoBlurbMap} containing the mappings between the url and blurbs.
      *
-     * @return {@code BlurbMap} object.
+     * @return {@code RepoBlurbMap} object.
      * @throws IOException if there are any issues opening or parsing the {@code blurbs.md} file.
      */
     @Override
-    public BlurbMap parse() throws IOException, InvalidMarkdownException {
+    public RepoBlurbMap parse() throws IOException, InvalidMarkdownException {
         logger.log(Level.INFO, "Parsing Blurbs...");
         // read all the lines first
         List<String> mdLines = Files.readAllLines(this.markdownPath);
@@ -82,7 +82,7 @@ public class BlurbMarkdownParser extends MarkdownParser<BlurbMap> {
         }
 
         // prepare the blurb map
-        BlurbMap blurbMap = new BlurbMap();
+        RepoBlurbMap blurbMap = new RepoBlurbMap();
 
         // define temporary local variables to track blurbs
         String url = "";
@@ -109,13 +109,13 @@ public class BlurbMarkdownParser extends MarkdownParser<BlurbMap> {
             }
             counter = blurbRecord.getNextPosition();
 
-            // add the recorded entry into the BlurbMap
+            // add the recorded entry into the RepoBlurbMap
             // strip the trailing /n
             blurbMap.withRecord(url, blurb.toString().stripTrailing());
             blurb.setLength(0);
         }
 
-        // return the built BlurbMap instance
+        // return the built RepoBlurbMap instance
         logger.log(Level.INFO, "Blurbs parsed successfully!");
         return blurbMap;
     }

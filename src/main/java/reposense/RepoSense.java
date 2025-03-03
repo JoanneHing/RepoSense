@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 
 import net.sourceforge.argparse4j.helper.HelpScreenException;
 import reposense.git.GitConfig;
-import reposense.model.BlurbMap;
+import reposense.model.RepoBlurbMap;
 import reposense.model.CliArguments;
 import reposense.model.RepoConfiguration;
 import reposense.model.ReportConfiguration;
@@ -45,7 +45,7 @@ public class RepoSense {
             CliArguments cliArguments = ArgsParser.parse(args);
             List<RepoConfiguration> configs = null;
             ReportConfiguration reportConfig = new ReportConfiguration();
-            BlurbMap blurbMap = new BlurbMap();
+            RepoBlurbMap blurbMap = new RepoBlurbMap();
 
             if (cliArguments.isViewModeOnly()) {
                 ReportServer.startServer(SERVER_PORT_NUMBER, cliArguments.getReportDirectoryPath().toAbsolutePath());

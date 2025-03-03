@@ -41,7 +41,7 @@ import reposense.git.exception.CommitNotFoundException;
 import reposense.git.exception.GitBranchException;
 import reposense.git.exception.GitCloneException;
 import reposense.model.Author;
-import reposense.model.BlurbMap;
+import reposense.model.RepoBlurbMap;
 import reposense.model.CommitHash;
 import reposense.model.RepoConfiguration;
 import reposense.model.RepoLocation;
@@ -114,7 +114,7 @@ public class ReportGenerator {
      * @param shouldFreshClone The boolean variable for whether to clone a repo again during tests.
      * @param shouldAnalyzeAuthorship The boolean variable for whether to further analyze authorship.
      * @param originalityThreshold The double variable for originality threshold in analyze authorship.
-     * @param blurbMap The {@code BlurbMap}.
+     * @param blurbMap The {@code RepoBlurbMap}.
      * @return the list of file paths that were generated.
      * @throws IOException if templateZip.zip does not exist in jar file.
      * @throws InvalidMarkdownException if the blurb markdown file cannot be parsed properly.
@@ -123,7 +123,7 @@ public class ReportGenerator {
             ReportConfiguration reportConfig, String generationDate, LocalDateTime cliSinceDate,
             LocalDateTime untilDate, boolean isSinceDateProvided, boolean isUntilDateProvided, int numCloningThreads,
             int numAnalysisThreads, Supplier<String> reportGenerationTimeProvider, ZoneId zoneId,
-            boolean shouldFreshClone, boolean shouldAnalyzeAuthorship, double originalityThreshold, BlurbMap blurbMap)
+            boolean shouldFreshClone, boolean shouldAnalyzeAuthorship, double originalityThreshold, RepoBlurbMap blurbMap)
             throws IOException, InvalidMarkdownException {
         prepareTemplateFile(outputPath);
         if (Files.exists(Paths.get(assetsPath))) {

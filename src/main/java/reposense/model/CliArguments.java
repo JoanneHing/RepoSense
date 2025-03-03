@@ -51,7 +51,7 @@ public class CliArguments {
     private Path groupConfigFilePath;
     private Path reportConfigFilePath;
     private ReportConfiguration reportConfiguration;
-    private BlurbMap blurbMap;
+    private RepoBlurbMap blurbMap;
 
     /**
      * Constructs a {@code CliArguments} object without any parameters.
@@ -162,7 +162,7 @@ public class CliArguments {
         return reportConfiguration;
     }
 
-    public BlurbMap getBlurbMap() {
+    public RepoBlurbMap getBlurbMap() {
         return blurbMap;
     }
 
@@ -498,7 +498,7 @@ public class CliArguments {
          *
          * @param blurbMap The blurb map.
          */
-        public Builder blurbMap(BlurbMap blurbMap) {
+        public Builder blurbMap(RepoBlurbMap blurbMap) {
             this.cliArguments.blurbMap = blurbMap;
             return this;
         }

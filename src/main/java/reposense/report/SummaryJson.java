@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import reposense.model.BlurbMap;
+import reposense.model.RepoBlurbMap;
 import reposense.model.RepoConfiguration;
 import reposense.model.ReportConfiguration;
 import reposense.model.SupportedDomainUrlMap;
@@ -30,13 +30,13 @@ public class SummaryJson {
     private final boolean isUntilDateProvided;
     private final Map<String, Map<String, String>> supportedDomainUrlMap;
     private final boolean isAuthorshipAnalyzed;
-    private final BlurbMap blurbs;
+    private final RepoBlurbMap blurbs;
 
     public SummaryJson(List<RepoConfiguration> repos, ReportConfiguration reportConfig, String reportGeneratedTime,
                        LocalDateTime sinceDate, LocalDateTime untilDate, boolean isSinceDateProvided,
                        boolean isUntilDateProvided, String repoSenseVersion, Set<Map<String, String>> errorSet,
                        String reportGenerationTime, ZoneId zoneId,
-                       boolean isAuthorshipAnalyzed, BlurbMap blurbs) {
+                       boolean isAuthorshipAnalyzed, RepoBlurbMap blurbs) {
         this.repos = repos;
         this.reportGeneratedTime = reportGeneratedTime;
         this.reportGenerationTime = reportGenerationTime;

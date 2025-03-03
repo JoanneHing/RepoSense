@@ -25,7 +25,7 @@ import net.sourceforge.argparse4j.inf.FeatureControl;
 import net.sourceforge.argparse4j.inf.MutuallyExclusiveGroup;
 import net.sourceforge.argparse4j.inf.Namespace;
 import reposense.RepoSense;
-import reposense.model.BlurbMap;
+import reposense.model.RepoBlurbMap;
 import reposense.model.CliArguments;
 import reposense.model.FileType;
 import reposense.model.ReportConfiguration;
@@ -408,7 +408,7 @@ public class ArgsParser {
      * @param results Parsed results of the user-supplied CLI arguments.
      */
     private static void addBlurbMapToBuilder(CliArguments.Builder builder, Namespace results) {
-        BlurbMap blurbMap = new BlurbMap();
+        RepoBlurbMap blurbMap = new RepoBlurbMap();
         Path configFolderPath = results.get(CONFIG_FLAGS[0]);
 
         // Blurbs are parsed regardless
