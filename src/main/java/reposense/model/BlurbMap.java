@@ -9,6 +9,8 @@ public interface BlurbMap {
 
     /**
      * Returns a copy of the mappings in the {@code BlurbMap}.
+     *
+     * @return a copy of the mappings in the {@code BlurbMap}.
      */
     public Map<String, String> getAllMappings();
 
